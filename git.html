@@ -198,6 +198,21 @@ git log --pretty={email|full|fuller|medium|oneline|raw|short|format}
 </div>
 
 <div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Tags</h2>
+<pre style="font-style:15pt">
+git tag 1.0.0				# Tag the current commit
+git tag 1.0.0 &lt;commit&gt;# Tag the given commit
+git tag -a 1.0.0			# Annotated tag (preferred method)
+git tag -s 1.0.0			# Tag and sign commit
+git tag -u 1.0.0			# Tag and gpg sign commit
+git tag -d 1.0.0			# Delete the commit
+</pre>
+</div>
+
+
+
+<div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Branch commands</h2>
 <pre style="font-size:15pt">
