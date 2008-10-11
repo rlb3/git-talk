@@ -197,10 +197,68 @@ git log --pretty={email|full|fuller|medium|oneline|raw|short|format}
 </ul>
 </div>
 
+<div class="slide">
+<h1>Branching and Merging</h1>
+<h2>Branch commands</h2>
+<pre style="font-size:15pt">
+git branch                                # Show local branches
+git branch -r                             # Show remote branches
+git branch -a                             # Show local and remote branches
+git branch new_branch                     # Create new branch base of the current branch
+git branch -d branch                      # Delete local branch
+git branch -D branch                      # Force delete if there are commits in branch that are not a
+                                          # strict subset of your current HEAD
+git branch new_branch other_branch        # Create new_branch based on other_branch
+git branch --track branch remote/branch   # Create a branch to track a remote repo
+</pre>
+</div>
 
+<div class="slide">
+<h1>Branching and Merging</h1>
+<h2>Checkout commands</h2>
+<pre style="font-size:15pt">
+git checkout branch                         # Checkout the branch in the current working directory
+git checkout -b new_branch                  # Create new_branch based on the current branch and switch to it
+git checkout -b new_branch branch           # Create new_branch based on the given 'branch' and switch to it
+git checkout --track branch remote/branch   # Create a branch to track a remote repo and preform checkout
+</pre>
+</div>
 
+<div class="slide">
+<h1>Branching and Merging</h1>
+<h2>Merging commands</h2>
+<pre style="font-size:15pt">
+git merge branch                        # Merge branch into current branch
+git rebase branch                       # Bring current branch up to date with another branch without merging.
+</pre>
+</div>
 
+<div class="slide">
+<h1>Branching and Merging</h1>
+<h2>Rebase</h2>
+<pre style="font-size:15pt">
+What's the difference between merge and rebase
 
+                  o-o-o <- branch
+                 /
+            o-o-o-o-o <- master
+
+Merge
+                   Merge point
+                        |
+                  o-o-o-o <- branch
+                 /     /
+            o-o-o-o-o <- master
+
+Rebase
+
+                      o-o-o <- branch
+                     /
+            o-o-o-o-o <- master
+</pre>
+
+<p>Rebase is used when you have a topic branch you want to keep up to date then merge back to the original branch on your local repository.  
+Merge can also be used for this locally but merge is the recommended to get new changes in to a long lived branch living on the remote repository.</p>
 
 </div>
 </body>
