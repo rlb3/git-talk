@@ -92,6 +92,10 @@ drwxr-xr-x  16 robert  staff   544 Oct 11 11:52 .git
 git config --global user.name "name"
 git config --global user.email "name@email.com"
 </pre>
+<ul>
+    <li>--global writes information to ~/.gitconfig</li>
+    <li>Without --global information is written to .git/config</li>
+</ul>
 </div>
 
 <div class="slide">
@@ -156,7 +160,41 @@ git status
 #
 </pre>
 All changes must be added to the git index before they can be committed
-    
+</div>
+
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Making commits</h2>
+<pre style="font-size:15pt">
+git commit -m 'Log message'       # Commit the index
+git commit -a -m 'Log message'    # Add new content to the index then commit
+git commit -s -m 'Log message'    # Sign commit
+</pre>
+
+<ul>
+    <li>Without -m you will be loaded into $EDITOR for the log message. Git will not commit without a log message</li>
+    <li>-a automatically adds any tracked files that have changed</li>
+    <li>-s "Signs" the commit by adding "Signed-off-by: name <name@email.com>" to the log message</li>
+</ul>
+</div>
+
+
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Logs</h2>
+<pre style="font-size:15pt">
+git log
+git log -p
+git log --pretty={email|full|fuller|medium|oneline|raw|short|format}
+</pre>
+
+<ul>
+    <li>Shows basic commit logs</li>
+    <li>-p shows the commit log and the diff for that commit</li>
+    <li>--pretty determines the format of the log message</li>
+</ul>
 </div>
 
 
@@ -164,5 +202,6 @@ All changes must be added to the git index before they can be committed
 
 
 
+</div>
 </body>
 </html>
