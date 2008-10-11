@@ -69,5 +69,100 @@
 </ul>
 </div>
 
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Creating a git repository:</h2>
+<pre>
+mkdir repository
+cd repository
+git init
+ls -la
+drwxr-xr-x   6 robert  staff   204 Oct 11 12:02 .
+drwxr-xr-x  98 robert  staff  3332 Oct 11 11:06 ..
+drwxr-xr-x  16 robert  staff   544 Oct 11 11:52 .git
+</pre>
+</div>
+
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Introduce yourself to git:</h2>
+<pre>
+git config --global user.name "name"
+git config --global user.email "name@email.com"
+</pre>
+</div>
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Adding files to a git repository:</h2>
+<pre style="font-size:15pt">
+echo "Hello, World" > greeting.txt
+git add greeting.txt
+git commit -m "Initial checkin"
+
+Created initial commit 4fe4bab: Initial checkin
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+ 
+git show
+commit 4fe4bab619edfa70421ae686f1a3e81e3d390f4e
+Author: Robert Boone <robo4288@gmail.com>
+Date:   Sat Oct 11 12:05:47 2008 -0500
+
+    Initial checkin
+
+diff --git a/greeting.txt b/greeting.txt
+new file mode 100644
+index 0000000..3fa0d4b
+--- /dev/null
++++ b/greeting.txt
+@@ -0,0 +1 @@
++Hello, World
+</pre>
+</div>
+
+<div class="slide">
+<h1>Basic Git commands</h1>
+<h2>Making changes</h2>
+<pre style="font-size:15pt">
+$EDITOR greeting.txt # remove comma
+git status
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#       modified:   greeting.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+git diff
+diff --git a/greeting.txt b/greeting.txt
+index 3fa0d4b..557db03 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-Hello, World
++Hello World
+
+git add greeting.txt
+git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   greeting.txt
+#
+</pre>
+All changes must be added to the git index before they can be committed
+    
+</div>
+
+
+
+
+
+
 </body>
 </html>
