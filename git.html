@@ -59,13 +59,13 @@
 
 <div class="slide">
 <h1>Features of git</h1>
-<ul>
-    <li style="font-size:15pt"><strong>Distributed development.</strong> Like most other modern version control systems, Git gives each developer a local copy of the entire development history, and changes are copied from one such repository to another. These changes are imported as additional development branches, and can be merged in the same way as a locally developed branch. Repositories can be easily accessed via the efficient Git protocol (optionally wrapped in ssh for authentication and security) or simply using HTTP - you can publish your repository anywhere without any special webserver configuration required.</li>
-    <li style="font-size:15pt"><strong>Strong support for non-linear development.</strong> Git supports rapid and convenient branching and merging, and includes powerful tools for visualizing and navigating a non-linear development history.</li>
-    <li style="font-size:15pt"><strong>Efficient handling of large projects.</strong> Git is very fast and scales well even when working with large projects and long histories. It is commonly an order of magnitude faster than most other version control systems, and several orders of magnitude faster on some operations. It also uses an extremely efficient packed format for long-term revision storage that currently tops any other open source version control system</li>
-    <li style="font-size:15pt"><strong>Cryptographic authentication of history.</strong> The Git history is stored in such a way that the name of a particular revision (a "commit" in Git terms) depends upon the complete development history leading up to that commit. Once it is published, it is not possible to change the old versions without it being noticed. Also, tags can be cryptographically signed.</li>
-    <li style="font-size:15pt"><strong>Toolkit design.</strong> Following the Unix tradition, Git is a collection of many small tools written in C, and a number of scripts that provide convenient wrappers. Git provides tools for both easy human usage and easy scripting to perform new clever operations.</li>
-    <li style="font-size:15pt"><a href="http://git.or.cz/#about">Source</a></li>
+<ul style="font-size:20pt">
+    <li><strong>Distributed development.</strong> Like most other modern version control systems, Git gives each developer a local copy of the entire development history, and changes are copied from one such repository to another. These changes are imported as additional development branches, and can be merged in the same way as a locally developed branch. Repositories can be easily accessed via the efficient Git protocol (optionally wrapped in ssh for authentication and security) or simply using HTTP - you can publish your repository anywhere without any special webserver configuration required.</li>
+    <li><strong>Strong support for non-linear development.</strong> Git supports rapid and convenient branching and merging, and includes powerful tools for visualizing and navigating a non-linear development history.</li>
+    <li><strong>Efficient handling of large projects.</strong> Git is very fast and scales well even when working with large projects and long histories. It is commonly an order of magnitude faster than most other version control systems, and several orders of magnitude faster on some operations. It also uses an extremely efficient packed format for long-term revision storage that currently tops any other open source version control system</li>
+    <li><strong>Cryptographic authentication of history.</strong> The Git history is stored in such a way that the name of a particular revision (a "commit" in Git terms) depends upon the complete development history leading up to that commit. Once it is published, it is not possible to change the old versions without it being noticed. Also, tags can be cryptographically signed.</li>
+    <li><strong>Toolkit design.</strong> Following the Unix tradition, Git is a collection of many small tools written in C, and a number of scripts that provide convenient wrappers. Git provides tools for both easy human usage and easy scripting to perform new clever operations.</li>
+    <li><a href="http://git.or.cz/#about">Source</a></li>
 </ul>
 </div>
 
@@ -92,7 +92,7 @@ drwxr-xr-x  16 robert  staff   544 Oct 11 11:52 .git
 git config --global user.name "name"
 git config --global user.email "name@email.com"
 </pre>
-<ul>
+<ul style="font-size:30pt">
     <li>--global writes information to ~/.gitconfig</li>
     <li>Without --global information is written to .git/config</li>
 </ul>
@@ -101,7 +101,7 @@ git config --global user.email "name@email.com"
 <div class="slide">
 <h1>Basic Git commands</h1>
 <h2>Adding files to a git repository:</h2>
-<pre style="font-size:15pt">
+<pre style="font-size:20pt">
 echo "Hello, World" > greeting.txt
 git add greeting.txt
 git commit -m "Initial checkin"
@@ -130,7 +130,7 @@ index 0000000..3fa0d4b
 <div class="slide">
 <h1>Basic Git commands</h1>
 <h2>Making changes</h2>
-<pre style="font-size:15pt">
+<pre style="font-size:20pt">
 $EDITOR greeting.txt # remove comma
 git status
 # On branch master
@@ -166,13 +166,13 @@ All changes must be added to the git index before they can be committed
 <div class="slide">
 <h1>Basic Git commands</h1>
 <h2>Making commits</h2>
-<pre style="font-size:15pt">
-git commit -m 'Log message'       # Commit the index
-git commit -a -m 'Log message'    # Add new content to the index then commit
-git commit -s -m 'Log message'    # Sign commit
+<pre style="font-size:20pt">
+git commit -m 'Log message'
+git commit -a -m 'Log message'
+git commit -s -m 'Log message'
 </pre>
 
-<ul>
+<ul style="font-size:30pt">
     <li>Without -m you will be loaded into $EDITOR for the log message. Git will not commit without a log message</li>
     <li>-a automatically adds any tracked files that have changed</li>
     <li>-s "Signs" the commit by adding "Signed-off-by: name <name@email.com>" to the log message</li>
@@ -184,13 +184,13 @@ git commit -s -m 'Log message'    # Sign commit
 <div class="slide">
 <h1>Basic Git commands</h1>
 <h2>Logs</h2>
-<pre style="font-size:15pt">
+<pre style="font-size:20pt">
 git log
 git log -p
 git log --pretty={email|full|fuller|medium|oneline|raw|short|format}
 </pre>
 
-<ul>
+<ul style="font-size:30pt">
     <li>Shows basic commit logs</li>
     <li>-p shows the commit log and the diff for that commit</li>
     <li>--pretty determines the format of the log message</li>
@@ -201,13 +201,21 @@ git log --pretty={email|full|fuller|medium|oneline|raw|short|format}
 <h1>Basic Git commands</h1>
 <h2>Tags</h2>
 <pre style="font-style:15pt">
-git tag 1.0.0				# Tag the current commit
-git tag 1.0.0 &lt;commit&gt;# Tag the given commit
-git tag -a 1.0.0			# Annotated tag (preferred method)
-git tag -s 1.0.0			# Tag and sign commit
-git tag -u 1.0.0			# Tag and gpg sign commit
-git tag -d 1.0.0			# Delete the commit
+git tag 1.0.0
+git tag 1.0.0 &lt;commit&gt;
+git tag -a 1.0.0
+git tag -s 1.0.0
+git tag -u 1.0.0
+git tag -d 1.0.0
 </pre>
+<ul style="font-size:30pt">
+  <li>Tag the current commit</li>
+  <li>Tag the given commit</li>
+  <li>-a Annotated tag (preferred method</li>
+  <li>-s Tag and sign commit</li>
+  <li>-u Tag and gpg sign commi</li>
+  <li>-d Delete the commit</li>
+</ul>
 </div>
 
 
@@ -215,43 +223,63 @@ git tag -d 1.0.0			# Delete the commit
 <div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Branch commands</h2>
-<pre style="font-size:15pt">
-git branch                                # Show local branches
-git branch -r                             # Show remote branches
-git branch -a                             # Show local and remote branches
-git branch new_branch                     # Create new branch base of the current branch
-git branch -d branch                      # Delete local branch
-git branch -D branch                      # Force delete if there are commits in branch that are not a
-                                          # strict subset of your current HEAD
-git branch new_branch other_branch        # Create new_branch based on other_branch
-git branch --track branch remote/branch   # Create a branch to track a remote repo
+<pre style="font-size:20pt">
+git branch
+git branch -r
+git branch -a
+git branch new_branch
+git branch -d branch
+git branch -D branch
+git branch new_branch other_branch
+git branch --track branch remote/branch
 </pre>
+<ul style="font-size:20pt">
+  <li>Show local branches</li>
+  <li>Show remote branches</li>
+  <li>Show local and remote branches</li>
+  <li>Create new branch base of the current branch</li>
+  <li>Delete local branch</li>
+  <li>Force delete if there are commits in branch that are not a strict subset of your current HEAD</li>
+  <li>Create new_branch based on other_branch</li>
+  <li>Create a branch to track a remote repo</li>
+</ul>
+
 </div>
 
 <div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Checkout commands</h2>
 <pre style="font-size:15pt">
-git checkout branch                         # Checkout the branch in the current working directory
-git checkout -b new_branch                  # Create new_branch based on the current branch and switch to it
-git checkout -b new_branch branch           # Create new_branch based on the given 'branch' and switch to it
-git checkout --track branch remote/branch   # Create a branch to track a remote repo and preform checkout
+git checkout branch
+git checkout -b new_branch
+git checkout -b new_branch branch
+git checkout --track branch remote/branch
 </pre>
+<ul style="font-size:30pt">
+  <li>Checkout the branch in the current working director</li>
+  <li>Create new_branch based on the current branch and switch to i</li>
+  <li>Create new_branch based on the given 'branch' and switch to i</li>
+  <li>Create a branch to track a remote repo and preform checkou</li>
+</ul>
 </div>
 
 <div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Merging commands</h2>
-<pre style="font-size:15pt">
-git merge branch                        # Merge branch into current branch
-git rebase branch                       # Bring current branch up to date with another branch without merging.
+<pre style="font-size:20pt">
+git merge branch
+git rebase branch
 </pre>
+<ul style="font-size:30pt">
+  <li>Merge branch into current branch</li>
+  <li>Bring current branch up to date with another branch without merging</li>
+</ul>
 </div>
 
 <div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Rebase</h2>
-<pre style="font-size:15pt">
+<pre style="font-size:20pt">
 What's the difference between merge and rebase
 
                   o-o-o <- branch
@@ -272,7 +300,7 @@ Rebase
             o-o-o-o-o <- master
 </pre>
 
-<p>Rebase is used when you have a topic branch you want to keep up to date then merge back to the original branch on your local repository.  
+<p style="font-size:30pt">Rebase is used when you have a topic branch you want to keep up to date then merge back to the original branch on your local repository.  
 Merge can also be used for this locally but merge is the recommended to get new changes in to a long lived branch living on the remote repository.</p>
 </div>
 
