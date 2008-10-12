@@ -335,6 +335,7 @@ git push origin master:mybranch
 git push origin --all
 git push remote.site/repo.git local_branch:refs/heads/remote_branch
 git push origin :branch
+git push --tags
 git fetch origin master
 git fetch origin remote_branch:local_branch
 git fetch remote.site/repo.git master:master
@@ -346,9 +347,11 @@ git fetch remote.site/repo.git master:master
   <li>Push all branches to remote</li>
   <li>Push master from the remote repo into master source:destination</li>
   <li>Delete remote branch</li>
+  <li>Push any tags to origin</li>
   <li>Fetch master branch from origin to local master</li>
   <li>Fetch remote_branch from origin to local local_branch</li>
   <li>Fetch master from the remote repo into master</li>
+
 </ul>
 </div>
 
