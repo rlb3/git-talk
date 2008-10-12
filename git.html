@@ -249,7 +249,7 @@ git branch --track branch remote/branch
 <div class="slide">
 <h1>Branching and Merging</h1>
 <h2>Checkout commands</h2>
-<pre style="font-size:15pt">
+<pre style="font-size:25pt">
 git checkout branch
 git checkout -b new_branch
 git checkout -b new_branch branch
@@ -303,6 +303,59 @@ Rebase
 <p style="font-size:30pt">Rebase is used when you have a topic branch you want to keep up to date then merge back to the original branch on your local repository.  
 Merge can also be used for this locally but merge is the recommended to get new changes in to a long lived branch living on the remote repository.</p>
 </div>
+
+
+<div class="slide">
+<h1>Remote Repositories</h1>
+<h2>Cloning<h2>
+<pre style="font-size:20pt">
+git clone git://remote.site/repo/dir working_dir
+git clone remote.site:/repo/dir working_dir
+git clone http://remote.site/repo/dir working_dir
+git clone /tmp/repo/dir working_dir
+git clone --bare /tmp/repo/dir /var/www/dir.git
+</pre>
+<ul style="font-size:30pt">
+  <li>Clone via git protocol</li>
+  <li>Clone via ssh</li>
+  <li>Clone via http</li>
+  <li>Clone via filesystem</li>
+  <li>Make a bare repository that contains no working directory</li>
+</ul>
+</div>
+
+
+<div class="slide">
+<h1>Remote Repositories</h1>
+<h2>Pushing and pulling</h2>
+<pre style="font-size:20pt">
+git pull
+git push origin master
+git push origin master:mybranch
+git push origin --all
+git push remote.site/repo.git local_branch:refs/heads/remote_branch
+git push origin :branch
+git fetch origin master
+git fetch origin remote_branch:local_branch
+git fetch remote.site/repo.git master:master
+</pre>
+<ul style="font-size:30pt">
+  <li>Fetch and merge into a tracking branch</li>
+  <li>Push master branch from origin to local master</li>
+  <li>Push master branch from origin to new remote mybranch</li>
+  <li>Push all branches to remote</li>
+  <li>Push master from the remote repo into master source:destination</li>
+  <li>Delete remote branch</li>
+  <li>Fetch master branch from origin to local master</li>
+  <li>Fetch remote_branch from origin to local local_branch</li>
+  <li>Fetch master from the remote repo into master</li>
+</ul>
+</div>
+
+
+
+
+
 
 
 
