@@ -44,6 +44,20 @@
 <h4>Houston.pm</h4>
 </div>
 
+<div class="slide">
+<h1>What we will cover</h1>
+<ul>
+<li>We will be talk mosly about git commands and what they do</li>
+<li>
+  <ul>
+    <li>Basic commands</li>
+    <li>Branching and merging</li>
+    <li>Remote repositories</li>
+    <li>Working with subversion</li>
+  </ul>
+</li>
+<li>If you have any questions about anything not covered just ask and I will try to answer</li>
+</ul>
 
 <div class="slide">
 <h1>Where did git come from</h1>
@@ -73,7 +87,7 @@
 <div class="slide">
 <h1>Basic Git commands</h1>
 <h2>Creating a git repository:</h2>
-<pre>
+<pre style="font-size:20pt">
 mkdir repository
 cd repository
 git init
@@ -81,6 +95,9 @@ ls -la
 drwxr-xr-x   6 robert  staff   204 Oct 11 12:02 .
 drwxr-xr-x  98 robert  staff  3332 Oct 11 11:06 ..
 drwxr-xr-x  16 robert  staff   544 Oct 11 11:52 .git
+
+ls .git
+branches config  description  HEAD  hooks  index  info  logs  objects  packed-refs refs
 </pre>
 </div>
 
@@ -351,14 +368,13 @@ git fetch remote.site/repo.git master:master
   <li>Fetch master branch from origin to local master</li>
   <li>Fetch remote_branch from origin to local local_branch</li>
   <li>Fetch master from the remote repo into master</li>
-
 </ul>
 </div>
 
 <div class="slide">
 <h1>Making a remote repository</h1>
 <h2>Creating a remote repository</h2>
-<pre style="font-style:20pt">
+<pre style="font-style:10pt">
 cd repo
 git clone --bare . ../repo.git
 cd ..
@@ -382,11 +398,12 @@ git push public topic:topic
 <div class="slide">
 <h1>Working with subversion</h1>
 <pre style="font-style:20pt">
-git svn clone <svn repo> -T trunk -t tags -b branches repo_name
-git svn clone -s <svn repo> repo_name
-git svn clone <svn repo>/branch repo_name
+git svn clone <svn repo> -T trunk -t tags -b branches svn_url
+git svn clone -s <svn repo> svn_url
+git svn clone <svn repo>/branch svn_url
 git svn fetch
 git svn rebase
+git svn dcomit
 </pre>
 <ul style="font-size:20pt">
    <li>Create new git repo from subversion repo</li>
@@ -394,6 +411,7 @@ git svn rebase
    <li>Bring over just one branch from svn</li>
    <li>Grab any new commit from subversion repo </li>
    <li>Bring master branch upto date after fetch</li>
+   <li>Commit back to subversion</li>
 </ul>
 
 </div>
@@ -404,6 +422,8 @@ git svn rebase
         <li><a href="http://www.kernel.org/pub/software/scm/git/docs/">Git Documentation</a></li>
         <li><a href="http://book.git-scm.com/">The Git Community Book</a></li>
         <li><a href="http://github.com/guides/home">GitHub Guides</a></li>
+        <li><a href="http://www.nntp.perl.org/group/perl.perl5.porters/2008/03/msg134793.html">Perl moving to Git</a></li>
+        <li><a href="http://consttype.blogspot.com/search/label/git">Git articles by the perl pumpking (Rafael Garcia-Suarez)</a></li>
     </ul>
 </div>
 
