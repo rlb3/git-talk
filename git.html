@@ -268,7 +268,7 @@ git checkout --track branch remote/branch
 <h2>Merging commands</h2>
 <pre style="font-size:20pt">
 git merge branch
-git rebase branch
+git rebase master
 </pre>
 <ul style="font-size:30pt">
   <li>Merge branch into current branch</li>
@@ -333,7 +333,7 @@ git pull
 git push origin master
 git push origin master:mybranch
 git push origin --all
-git push remote.site/repo.git local_branch:refs/heads/remote_branch
+git push remote.site/repo.git local_branch:remote_branch
 git push origin :branch
 git push --tags
 git fetch origin master
@@ -355,7 +355,48 @@ git fetch remote.site/repo.git master:master
 </ul>
 </div>
 
+<div class="slide">
+<h1>Making a remote repository</h1>
+<h2>Creating a remote repository</h2>
+<pre style="font-style:20pt">
+cd repo
+git clone --bare . ../repo.git
+cd ..
+scp -r repo.git remote.site:/git
+rm -rf repo.git
+cd repo
+git remote add public remote.site:/git/repo.git
+git fetch public
+git chechout -b topic
+<edit files>
+git commit -a
+git push public topic:topic
+</pre>
+<ul style="font-size:20pt">
+    <li>A bare repository is just the .git without the working directory</li>
+    <li>"git remote add" creates a alias to the full repository name</li>
+</ul>
 
+</div>
+
+<div class="slide">
+<h1>Working with subversion</h1>
+<pre style="font-style:20pt">
+git svn clone <svn repo> -T trunk -t tags -b branches repo_name
+git svn clone -s <svn repo> repo_name
+git svn clone <svn repo>/branch repo_name
+git svn fetch
+git svn rebase
+</pre>
+<ul style="font-size:20pt">
+   <li>Create new git repo from subversion repo</li>
+   <li>Create new git repo from subversion repo with standard layout</li>
+   <li>Bring over just one branch from svn</li>
+   <li>Grab any new commit from subversion repo </li>
+   <li>Bring master branch upto date after fetch</li>
+</ul>
+
+</div>
 
 
 
